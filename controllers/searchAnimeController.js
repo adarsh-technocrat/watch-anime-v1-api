@@ -11,7 +11,7 @@ exports.searchAnime = async (req, res) => {
       });
     } else {
       axios({
-        url: `${process.env.BASE_URL}/wp-admin/admin-ajax.php`,
+        url: `https://chia-anime.su/wp-admin/admin-ajax.php`,
         method: "POST",
         headers: {
           authority: "chia-anime.su",
