@@ -44,14 +44,15 @@ exports.getAnimeDetails = async (req, res) => {
 
         const genres = [];
 
-        const spanData = [];
+        const spanData = {};
 
         infox.find(".genxed a").each((i, element) => {
           genres.push($(element).text());
         });
 
         infox.find(".spe span").each((index, element) => {
-          spanData.push($(element).text().split(":")[1].trim());
+          const data = $(element).text().split(":");
+          spanData[data[0]] = data[1];
         });
 
         const anime_image = thumb.attr("src");
@@ -74,14 +75,7 @@ exports.getAnimeDetails = async (req, res) => {
           data: {
             anime_image: anime_image,
             anime_title: anime_title,
-            anime_status: spanData[0],
-            anime_studio: spanData[1],
-            release_date: spanData[2],
-            duration: spanData[3],
-            seasion: spanData[4],
-            type: spanData[5],
-            episodes: spanData[6],
-            censor: spanData[7],
+            anime_info: spanData,
             genres: genres,
             rating: rating,
             anime_short_summary: anime_short_summary,
