@@ -39,13 +39,13 @@ exports.searchAnime = async (req, res) => {
         let newMapData = result.data["anime"][0]["all"].map((data) => {
           return {
             anime_image: data["post_image"],
-            anime_id: data["ID"],
             anime_title: data["post_title"],
             anime_genres: data["post_genres"],
             anime_type: data["post_type"],
             anime_episodes: data["post_latest"],
             anime_sub: data["post_sub"],
             anime_link: data["post_link"],
+            anime_slug: data["post_link"].split("/")[4],
           };
         });
         res.status(200).json({
