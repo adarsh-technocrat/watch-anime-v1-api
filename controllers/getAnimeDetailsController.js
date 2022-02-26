@@ -1,6 +1,5 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
-const parse = require("node-html-parser");
 
 exports.getAnimeDetails = async (req, res) => {
   try {
