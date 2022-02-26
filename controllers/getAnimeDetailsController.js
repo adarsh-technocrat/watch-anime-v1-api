@@ -79,7 +79,6 @@ exports.getAnimeDetails = async (req, res) => {
             genres: genres,
             rating: rating,
             anime_short_summary: anime_short_summary,
-            anime_episodes_stream_link: [],
           },
         });
       });
