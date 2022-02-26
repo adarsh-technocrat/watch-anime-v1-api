@@ -19,8 +19,10 @@
   "homepage": "https://github.com/adarsh-technocrat/watch-anime-v1-api#readme",
   "dependencies": {
     "axios": "^0.26.0",
+    "cheerio": "^1.0.0-rc.10",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "node-html-parser": "^5.2.0",
     "nodemon": "^2.0.15"
   }
 }
