@@ -42,9 +42,13 @@ exports.getAnimeDetails = async (req, res) => {
 
         const thumb = $(".thumb img");
 
+        const num = $(".num");
+
         const genres = [];
 
         const spanData = {};
+
+        const episodes = [];
 
         infox.find(".genxed a").each((i, element) => {
           genres.push($(element).text());
@@ -53,6 +57,13 @@ exports.getAnimeDetails = async (req, res) => {
         infox.find(".spe span").each((index, element) => {
           const data = $(element).text().split(":");
           spanData[data[0]] = data[1];
+        });
+
+        num.find("li a ").each((index, element) => {
+          let data = $(element).attr("href").split("/")[3];
+          if (data !== "anime") {
+            episodes.push(data);
+          }
         });
 
         const anime_image = thumb.attr("src");
@@ -79,6 +90,7 @@ exports.getAnimeDetails = async (req, res) => {
             genres: genres,
             rating: rating,
             anime_short_summary: anime_short_summary,
+            episode_id: episodes,
           },
         });
       });
